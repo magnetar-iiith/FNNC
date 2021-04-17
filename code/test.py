@@ -160,7 +160,7 @@ for cv in range(5):
 
 	t_ix = np.random.randint(0, len(data), int(0.8*len(data)))
 	train_data = data[t_ix]
-	test_data = data[np.random.randint(0, len(data), int(len(data)))]
+	test_data = data[np.random.randint(0, len(data), int(0.2*len(data)))]
 
 	################ TRAIN ################################
 	tf.global_variables_initializer().run(session=sess)
