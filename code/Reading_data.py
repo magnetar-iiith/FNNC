@@ -115,6 +115,9 @@ labels = ["{0} - {1}".format(i, j) for i,j in [[0,25],[25,65],[65,100]]]
 df['age_group'] = pd.cut(df.age, [0, 25, 65, 100], right=False, labels=labels)
 mapping = {'0 - 25': 0, '65 - 100': 0, '25 - 65': 1}
 df = df.replace({'age_group': mapping})
+cols = list(df.columns)
+cols = [cols[-1]] + cols[0:-1]
+df.columns = cols
 
 df_train = df
 df_train.to_csv('bank_train.csv', index=False)
